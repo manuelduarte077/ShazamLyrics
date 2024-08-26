@@ -10,14 +10,14 @@ struct LyricsView: View {
         VStack{
             Text(title)
                 .font(.title2)
-                .foregroundColor(.orange)
+                .foregroundColor(.color1)
                 .bold()
             
             ScrollView{
                 Text(lyrics.lyricModel.lyrics ?? "Letra no encontrada")
                     .bold()
                     .multilineTextAlignment(.center)
-                    .foregroundColor(.orange)
+                    .foregroundColor(.color1)
             }
         }.navigationTitle(artist)
             .task {

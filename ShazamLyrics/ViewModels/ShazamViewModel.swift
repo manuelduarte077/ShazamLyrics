@@ -6,6 +6,7 @@ class ShazamViewModel: NSObject, ObservableObject {
     
     @Published var shazamModel = ShazamModel(title: "Pulsa", artist: "Escuchar", album: URL(string: "https://google.com"))
     @Published var recording = false
+    @Published var stopRecording = false
     
     private var audioEngine = AVAudioEngine()
     private var session = SHSession()
