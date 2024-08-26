@@ -27,24 +27,35 @@ struct ShazamView: View {
                 Text(shazam.shazamModel.artist ?? "Sin artista")
                     .font(.title2)
                     .bold()
+                
+                
+                Button(action: {
+                    shazam.stop()
+                }, label: {
+                    Text("Stop")
+                })
+                
+                
                 Spacer()
                 HStack{
                     Button(action:{
                         shazam.startListening()
                     }){
                         Text(shazam.recording ? "Escuchando" : "Escuchar")
+                            .foregroundStyle(.color1)
                     }.buttonStyle(.bordered)
                         .controlSize(.large)
                         .shadow(radius: 4)
-                        .tint(.orange)
+                        .tint(.accent)
+                    
+                    
                     NavigationLink(destination: LyricsView(artist: shazam.shazamModel.artist ?? "Sin artista", title: shazam.shazamModel.title ?? "Sin titulo")){
                         Text("Ver letra")
+                            .foregroundStyle(.color1)
                     }.buttonStyle(.bordered)
                         .controlSize(.large)
                         .shadow(radius: 4)
-                        .tint(.orange)
-                    
-                
+                        .tint(.accent)
                 }
                 Spacer()
             }.padding(.all)

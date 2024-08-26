@@ -5,5 +5,3 @@ struct ContentView: View {
         ShazamView()
     }
 }
-
-
