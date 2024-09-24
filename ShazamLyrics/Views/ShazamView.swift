@@ -3,6 +3,7 @@ import SwiftUI
 struct ShazamView: View {
     
     @StateObject private var shazam = ShazamViewModel()
+    @State private var isShowingSettings: Bool = false
     
     var body: some View {
         NavigationView{
@@ -42,7 +43,7 @@ struct ShazamView: View {
                         shazam.startListening()
                     }){
                         Text(shazam.recording ? "Escuchando" : "Escuchar")
-                            .foregroundStyle(.color1)
+                            .foregroundStyle(.color2)
                     }.buttonStyle(.bordered)
                         .controlSize(.large)
                         .shadow(radius: 4)
@@ -51,17 +52,33 @@ struct ShazamView: View {
                     
                     NavigationLink(destination: LyricsView(artist: shazam.shazamModel.artist ?? "Sin artista", title: shazam.shazamModel.title ?? "Sin titulo")){
                         Text("Ver letra")
-                            .foregroundStyle(.color1)
+                            .foregroundStyle(.color2)
                     }.buttonStyle(.bordered)
                         .controlSize(.large)
                         .shadow(radius: 4)
                         .tint(.accent)
                 }
-                Spacer()
-            }.padding(.all)
-                .navigationTitle("Shazam Lyrics")
+            }
+            .navigationTitle("Shazam Lyrics")
+            .navigationBarItems(
+              trailing:
+                Button(action: {
+                  isShowingSettings = true
+                }) {
+                  Image(systemName: "gear")
+                } //: BUTTON
+                .sheet(isPresented: $isShowingSettings) {
+                  SettingsView()
+                }
+            )
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
+
+#Preview {
+    ShazamView()
+}
+
 
 
