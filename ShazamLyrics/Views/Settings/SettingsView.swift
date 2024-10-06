@@ -67,6 +67,4 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
-      .preferredColorScheme(.dark)
-      .previewDevice("iPhone 13")
 }
