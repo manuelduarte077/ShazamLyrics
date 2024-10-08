@@ -1,3 +1,10 @@
+//
+//  LyricsView.swift
+//  ShazamLyrics
+//
+//  Created by Manuel Duarte on 7/10/24.
+//
+
 import SwiftUI
 
 struct LyricsView: View {
@@ -14,47 +21,54 @@ struct LyricsView: View {
                     // HEADER
                     ShazamHeaderView()
                     
-                    VStack(alignment: .leading, spacing: 20) {
-                        // TITLE
+                    VStack(alignment: .leading, spacing: 16) {
+                        // TITLE - Artista
                         Text(artist)
-                          .font(.largeTitle)
-                          .fontWeight(.heavy)
-                          .foregroundColor(.color1)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
                         
-                        // SUBHEADLINE
-                        Text("Learn more about, \(title)".uppercased())
-                          .fontWeight(.bold)
-                          .foregroundColor(.color1)
+                        // SUBHEADLINE - Título de la canción
+                        Text("\(title)".uppercased())
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.secondary)
                         
-                        // DESCRIPTION
-                        Text(lyrics.lyricModel.lyrics ?? "Letra no encontrada")
-                          .multilineTextAlignment(.leading)
+                        Divider()
                         
-                        // LINK
-                        SourceLinkView()
-                          .padding(.top, 10)
-                          .padding(.bottom, 40)
-                        
+                        // LYRIC - Letra de la canción
+                        if let lyricsText = lyrics.lyricModel.lyrics, !lyricsText.isEmpty {
+                            Text(lyricsText)
+                                .font(.body)
+                                .multilineTextAlignment(.leading)
+                                .lineSpacing(8)
+                                .padding(.top, 10)
+                        } else {
+                            VStack (alignment: .center) {
+                                ProgressView()
+                                Text("No se encontró la letra para **\(title)**.")
+                                    .font(.body)
+                                    .foregroundColor(.red)
+                            }
+                        }
                     }
-                    .padding(.horizontal, 10)
-                    .frame(maxWidth: 640, alignment: .center)
+                    .padding(.horizontal, 16)
+                    .frame(maxWidth: 600)
                 }
                 .navigationBarTitle(title, displayMode: .inline)
                 .navigationBarHidden(true)
                 .task {
-                    await lyrics.fetch(artist: artist, title: title)
+                    await lyrics.fetchLyrics(artist: artist, title: title)
                 }
             }//: Scroll
             .edgesIgnoringSafeArea(.top)
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        
     }
 }
 
 
-
 #Preview {
-    LyricsView(artist: "Vicente Fernandez", title: "La Ley del monte")
+    LyricsView(artist: "Chayanne", title: "Yo Te Amo")
 }
 
