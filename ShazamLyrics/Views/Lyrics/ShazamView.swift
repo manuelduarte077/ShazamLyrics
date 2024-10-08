@@ -1,9 +1,18 @@
+//
+//  ShazamView.swift
+//  ShazamLyrics
+//
+//  Created by Manuel Duarte on 11/9/24.
+//
+
+
 import SwiftUI
 
 struct ShazamView: View {
     
     @StateObject private var shazam = ShazamViewModel()
     @State private var isShowingSettings: Bool = false
+    
     
     var body: some View {
         NavigationView{
@@ -59,13 +68,14 @@ struct ShazamView: View {
                         .tint(.accent)
                 }
             }
-            .navigationTitle("Shazam Lyrics")
+            .navigationTitle("Lyrics")
             .navigationBarItems(
               trailing:
                 Button(action: {
                   isShowingSettings = true
                 }) {
                   Image(systemName: "gear")
+                        .font(.title2)
                 } //: BUTTON
                 .sheet(isPresented: $isShowingSettings) {
                   SettingsView()

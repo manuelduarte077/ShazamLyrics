@@ -10,7 +10,7 @@
 		C457F0A52C916F51004174C1 /* ShazamHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F0A42C916F51004174C1 /* ShazamHeaderView.swift */; };
 		C457F0A72C917888004174C1 /* SourceLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F0A62C917888004174C1 /* SourceLinkView.swift */; };
 		C47A769A2CB31B7F0016A3F6 /* ShazamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A76992CB31B7C0016A3F6 /* ShazamService.swift */; };
-		C47A769C2CB31B890016A3F6 /* LyricsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A769B2CB31B870016A3F6 /* LyricsService.swift */; };
+		C47A769C2CB31B890016A3F6 /* LyricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A769B2CB31B870016A3F6 /* LyricService.swift */; };
 		C4ACF3882C91597B00FBC7F5 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */; };
 		C4ACF38A2C915E4A00FBC7F5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */; };
 		C4ACF38C2C915FAD00FBC7F5 /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF38B2C915FAD00FBC7F5 /* SettingsLabelView.swift */; };
@@ -31,7 +31,7 @@
 		C457F0A42C916F51004174C1 /* ShazamHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamHeaderView.swift; sourceTree = "<group>"; };
 		C457F0A62C917888004174C1 /* SourceLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLinkView.swift; sourceTree = "<group>"; };
 		C47A76992CB31B7C0016A3F6 /* ShazamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamService.swift; sourceTree = "<group>"; };
-		C47A769B2CB31B870016A3F6 /* LyricsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsService.swift; sourceTree = "<group>"; };
+		C47A769B2CB31B870016A3F6 /* LyricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricService.swift; sourceTree = "<group>"; };
 		C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C4ACF38B2C915FAD00FBC7F5 /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		C47A76952CB31B230016A3F6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C47A769B2CB31B870016A3F6 /* LyricsService.swift */,
+				C47A769B2CB31B870016A3F6 /* LyricService.swift */,
 				C47A76992CB31B7C0016A3F6 /* ShazamService.swift */,
 			);
 			path = Services;
@@ -240,7 +240,7 @@
 				CFCCCDC5270F7EA8005B78ED /* LyricsModel.swift in Sources */,
 				C457F0A72C917888004174C1 /* SourceLinkView.swift in Sources */,
 				CFCCCDBF270F6EB7005B78ED /* ShazamModel.swift in Sources */,
-				C47A769C2CB31B890016A3F6 /* LyricsService.swift in Sources */,
+				C47A769C2CB31B890016A3F6 /* LyricService.swift in Sources */,
 				CFCCCDC9270F813A005B78ED /* LyricsView.swift in Sources */,
 				C47A769A2CB31B7F0016A3F6 /* ShazamService.swift in Sources */,
 				C457F0A52C916F51004174C1 /* ShazamHeaderView.swift in Sources */,
