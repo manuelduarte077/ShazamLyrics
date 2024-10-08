@@ -35,6 +35,26 @@ struct SettingsView: View {
                         }
                     }
                     
+                    // Favorites
+                    GroupBox(
+                        label:
+                            SettingsLabelView(labelText: "Favorites", labelImage: "star")
+                    ) {
+                        NavigationLink(destination: FavoritesView()) {
+                            HStack {
+                                Text("Lyrics")
+                                Spacer()
+                                
+                                Image(systemName: "music.note.list")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(.yellow)
+                            }
+                        }
+                        .navigationTitle("Favorites")
+                    }
+                    
                     ///
                     GroupBox(
                         label:

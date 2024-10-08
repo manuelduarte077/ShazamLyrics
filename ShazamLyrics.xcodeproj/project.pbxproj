@@ -11,6 +11,7 @@
 		C457F0A72C917888004174C1 /* SourceLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F0A62C917888004174C1 /* SourceLinkView.swift */; };
 		C47A769A2CB31B7F0016A3F6 /* ShazamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A76992CB31B7C0016A3F6 /* ShazamService.swift */; };
 		C47A769C2CB31B890016A3F6 /* LyricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A769B2CB31B870016A3F6 /* LyricService.swift */; };
+		C47A76A82CB4F6540016A3F6 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A76A72CB4F6540016A3F6 /* CardView.swift */; };
 		C4ACF3882C91597B00FBC7F5 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */; };
 		C4ACF38A2C915E4A00FBC7F5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */; };
 		C4ACF38C2C915FAD00FBC7F5 /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF38B2C915FAD00FBC7F5 /* SettingsLabelView.swift */; };
@@ -32,6 +33,7 @@
 		C457F0A62C917888004174C1 /* SourceLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLinkView.swift; sourceTree = "<group>"; };
 		C47A76992CB31B7C0016A3F6 /* ShazamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamService.swift; sourceTree = "<group>"; };
 		C47A769B2CB31B870016A3F6 /* LyricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricService.swift; sourceTree = "<group>"; };
+		C47A76A72CB4F6540016A3F6 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C4ACF38B2C915FAD00FBC7F5 /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */,
+				C47A76A72CB4F6540016A3F6 /* CardView.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				C4ACF38E2C91641600FBC7F5 /* SettingsRowView.swift in Sources */,
 				CFCCCDC3270F6EDD005B78ED /* ShazamViewModel.swift in Sources */,
 				C4ACF38C2C915FAD00FBC7F5 /* SettingsLabelView.swift in Sources */,
+				C47A76A82CB4F6540016A3F6 /* CardView.swift in Sources */,
 				C4ACF3882C91597B00FBC7F5 /* FavoritesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
