@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C457F0A32C916ADA004174C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C457F0A22C916ADA004174C1 /* Assets.xcassets */; };
 		C457F0A52C916F51004174C1 /* ShazamHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F0A42C916F51004174C1 /* ShazamHeaderView.swift */; };
 		C457F0A72C917888004174C1 /* SourceLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F0A62C917888004174C1 /* SourceLinkView.swift */; };
+		C47A769A2CB31B7F0016A3F6 /* ShazamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A76992CB31B7C0016A3F6 /* ShazamService.swift */; };
+		C47A769C2CB31B890016A3F6 /* LyricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A769B2CB31B870016A3F6 /* LyricService.swift */; };
 		C4ACF3882C91597B00FBC7F5 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */; };
 		C4ACF38A2C915E4A00FBC7F5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */; };
 		C4ACF38C2C915FAD00FBC7F5 /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF38B2C915FAD00FBC7F5 /* SettingsLabelView.swift */; };
 		C4ACF38E2C91641600FBC7F5 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF38D2C91641600FBC7F5 /* SettingsRowView.swift */; };
+		C4B6869D2CA28A7000B9E2C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4B6869C2CA28A7000B9E2C0 /* Assets.xcassets */; };
 		CFCCCDAE270F69D8005B78ED /* ShazamLyricsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCCCDAD270F69D8005B78ED /* ShazamLyricsApp.swift */; };
 		CFCCCDB0270F69D8005B78ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCCCDAF270F69D8005B78ED /* ContentView.swift */; };
 		CFCCCDB5270F69D9005B78ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCCCDB4270F69D9005B78ED /* Preview Assets.xcassets */; };
@@ -26,13 +28,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C457F0A22C916ADA004174C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/ShazamLyrics-develop/ShazamLyrics/Assets.xcassets"; sourceTree = "<group>"; };
 		C457F0A42C916F51004174C1 /* ShazamHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamHeaderView.swift; sourceTree = "<group>"; };
 		C457F0A62C917888004174C1 /* SourceLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLinkView.swift; sourceTree = "<group>"; };
+		C47A76992CB31B7C0016A3F6 /* ShazamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamService.swift; sourceTree = "<group>"; };
+		C47A769B2CB31B870016A3F6 /* LyricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricService.swift; sourceTree = "<group>"; };
 		C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C4ACF38B2C915FAD00FBC7F5 /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
 		C4ACF38D2C91641600FBC7F5 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		C4B6869C2CA28A7000B9E2C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFCCCDAA270F69D8005B78ED /* ShazamLyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShazamLyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFCCCDAD270F69D8005B78ED /* ShazamLyricsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamLyricsApp.swift; sourceTree = "<group>"; };
 		CFCCCDAF270F69D8005B78ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +60,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C47A76952CB31B230016A3F6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C47A769B2CB31B870016A3F6 /* LyricService.swift */,
+				C47A76992CB31B7C0016A3F6 /* ShazamService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C47A76962CB31B380016A3F6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */,
+				C4ACF38B2C915FAD00FBC7F5 /* SettingsLabelView.swift */,
+				C4ACF38D2C91641600FBC7F5 /* SettingsRowView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C47A76972CB31B4F0016A3F6 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		C47A76982CB31B5F0016A3F6 /* Lyrics */ = {
+			isa = PBXGroup;
+			children = (
+				CFCCCDC0270F6EC7005B78ED /* ShazamView.swift */,
+				C457F0A42C916F51004174C1 /* ShazamHeaderView.swift */,
+				C457F0A62C917888004174C1 /* SourceLinkView.swift */,
+				CFCCCDC8270F813A005B78ED /* LyricsView.swift */,
+			);
+			path = Lyrics;
+			sourceTree = "<group>";
+		};
 		CFCCCDA1270F69D8005B78ED = {
 			isa = PBXGroup;
 			children = (
@@ -75,12 +117,12 @@
 		CFCCCDAC270F69D8005B78ED /* ShazamLyrics */ = {
 			isa = PBXGroup;
 			children = (
-				CFCCCDAD270F69D8005B78ED /* ShazamLyricsApp.swift */,
-				CFCCCDAF270F69D8005B78ED /* ContentView.swift */,
+				C47A76952CB31B230016A3F6 /* Services */,
 				CFCCCDBB270F6E85005B78ED /* Models */,
 				CFCCCDBD270F6E9E005B78ED /* Views */,
 				CFCCCDBC270F6E92005B78ED /* ViewModels */,
-				C457F0A22C916ADA004174C1 /* Assets.xcassets */,
+				CFCCCDAD270F69D8005B78ED /* ShazamLyricsApp.swift */,
+				C4B6869C2CA28A7000B9E2C0 /* Assets.xcassets */,
 				CFCCCDB3270F69D9005B78ED /* Preview Content */,
 			);
 			path = ShazamLyrics;
@@ -115,14 +157,10 @@
 		CFCCCDBD270F6E9E005B78ED /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CFCCCDC0270F6EC7005B78ED /* ShazamView.swift */,
-				CFCCCDC8270F813A005B78ED /* LyricsView.swift */,
-				C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */,
-				C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */,
-				C4ACF38B2C915FAD00FBC7F5 /* SettingsLabelView.swift */,
-				C4ACF38D2C91641600FBC7F5 /* SettingsRowView.swift */,
-				C457F0A42C916F51004174C1 /* ShazamHeaderView.swift */,
-				C457F0A62C917888004174C1 /* SourceLinkView.swift */,
+				C47A76982CB31B5F0016A3F6 /* Lyrics */,
+				C47A76972CB31B4F0016A3F6 /* Favorites */,
+				C47A76962CB31B380016A3F6 /* Settings */,
+				CFCCCDAF270F69D8005B78ED /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,7 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C457F0A32C916ADA004174C1 /* Assets.xcassets in Resources */,
+				C4B6869D2CA28A7000B9E2C0 /* Assets.xcassets in Resources */,
 				CFCCCDB5270F69D9005B78ED /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +240,9 @@
 				CFCCCDC5270F7EA8005B78ED /* LyricsModel.swift in Sources */,
 				C457F0A72C917888004174C1 /* SourceLinkView.swift in Sources */,
 				CFCCCDBF270F6EB7005B78ED /* ShazamModel.swift in Sources */,
+				C47A769C2CB31B890016A3F6 /* LyricService.swift in Sources */,
 				CFCCCDC9270F813A005B78ED /* LyricsView.swift in Sources */,
+				C47A769A2CB31B7F0016A3F6 /* ShazamService.swift in Sources */,
 				C457F0A52C916F51004174C1 /* ShazamHeaderView.swift in Sources */,
 				C4ACF38A2C915E4A00FBC7F5 /* SettingsView.swift in Sources */,
 				CFCCCDC1270F6EC7005B78ED /* ShazamView.swift in Sources */,
