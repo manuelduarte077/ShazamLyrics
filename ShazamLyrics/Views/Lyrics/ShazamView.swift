@@ -13,76 +13,125 @@ struct ShazamView: View {
     @StateObject private var shazam = ShazamViewModel()
     @State private var isShowingSettings: Bool = false
     
-    
     var body: some View {
-        NavigationView{
-            VStack(alignment: .center){
-                Spacer()
-                if shazam.recording {
-                    ProgressView()
-                }
-                
-                AsyncImage(url: shazam.shazamModel.album) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .edgesIgnoringSafeArea(.all)
-                } placeholder: {
-                    EmptyView()
-                }
-                
-                Text(shazam.shazamModel.title ?? "Sin titulo")
-                    .font(.title)
-                    .bold()
-                Text(shazam.shazamModel.artist ?? "Sin artista")
-                    .font(.title2)
-                    .bold()
-                
-                
-                Button(action: {
-                    shazam.stop()
-                }, label: {
-                    Text("Stop")
-                })
-                
-                
-                Spacer()
-                HStack{
-                    Button(action:{
-                        shazam.startListening()
-                    }){
-                        Text(shazam.recording ? "Escuchando" : "Escuchar")
-                            .foregroundStyle(.color2)
-                    }.buttonStyle(.bordered)
-                        .controlSize(.large)
-                        .shadow(radius: 4)
-                        .tint(.accent)
+        ZStack {
+            NavigationView {
+                VStack(alignment: .center){
                     
+                    Button {
+                        shazam.listnenMusic()
+                    } label: {
+                        Image(systemName: shazam.isRecording ? "stop" : "mic")
+                            .font(.system(size: 35).bold())
+                            .symbolVariant(.fill)
+                            .padding(30)
+                            .background(Color.cyan, in: Circle())
+                            .foregroundStyle(.white)
+                    }
+                }
+                .navigationTitle("Lyrics")
+            }
+            
+            
+            if let track = shazam.matchedTrack {
+                
+                ZStack {
+                    // Background Blurred Image...
+                    AsyncImage (url: track.artwork) { phase in
+                        
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                        }
+                        else {
+                            Color.white
+                        }
+                    }
+                    .overlay(.ultraThinMaterial)
+                    .frame(width: getRect().width)
                     
-                    NavigationLink(destination: LyricsView(artist: shazam.shazamModel.artist ?? "Sin artista", title: shazam.shazamModel.title ?? "Sin titulo")){
-                        Text("Ver letra")
-                            .foregroundStyle(.color2)
-                    }.buttonStyle(.bordered)
+                    // Track info...
+                    VStack (spacing: 15) {
+                        AsyncImage (url: track.artwork) { phase in
+                            
+                            if let image = phase.image {
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: getRect().width - 100, height: 300)
+                                    .cornerRadius(12)
+                            }
+                            else {
+                                ProgressView()
+                            }
+                        }
+                        .frame(width: getRect().width - 100, height: 300)
+                        
+                        
+                        Text(track.title)
+                            .font(.title2.bold())
+                        
+                        Text("Artist: \(track.artist)")
+                            .padding(.horizontal)
+                        
+                        VStack (alignment: .leading, spacing: 6) {
+                            Text("Genres")
+                                .padding(.leading)
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack (spacing: 10) {
+                                    ForEach(track.genres, id: \.self) { genre in
+                                        Button {
+                                            
+                                        } label: {
+                                            Text(genre)
+                                                .font(.caption)
+                                        }
+                                        .buttonStyle(.bordered)
+                                        .controlSize(.small)
+                                        .tint(.black)
+                                    }
+                                }
+                                .padding(.horizontal)
+                            }
+                        }
+                        
+                        /// Apple Music Link...
+                        Link(destination: track.appleMusicURL) {
+                            Text("Play in Apple Music")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.bordered)
                         .controlSize(.large)
-                        .shadow(radius: 4)
-                        .tint(.accent)
+                        .tint(.blue)
+                        .padding(.horizontal)
+                    }
+                    // Close Button
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .overlay(
+                        Button (action: {
+                            // Resetting View...
+                            shazam.matchedTrack = nil
+                            shazam.stopRecording()
+                        }, label: {
+                            Image(systemName: "xmark")
+                                .font(.caption)
+                                .padding(10)
+                                .background(Color.white, in: Circle())
+                                .foregroundStyle(.black)
+                        })
+                        .padding(10)
+                        ,alignment: .topTrailing
+                    )
                 }
             }
-            .navigationTitle("Lyrics")
-            .navigationBarItems(
-              trailing:
-                Button(action: {
-                  isShowingSettings = true
-                }) {
-                  Image(systemName: "gear")
-                        .font(.title2)
-                } //: BUTTON
-                .sheet(isPresented: $isShowingSettings) {
-                  SettingsView()
-                }
-            )
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .alert(shazam.errorMsg, isPresented: $shazam.showError) {
+            Button("Cancel", role: .cancel) {
+                
+            }
+        }
     }
 }
 
@@ -90,5 +139,8 @@ struct ShazamView: View {
     ShazamView()
 }
 
-
-
+extension View {
+    func getRect () -> CGRect {
+        return UIScreen.main.bounds
+    }
+}
