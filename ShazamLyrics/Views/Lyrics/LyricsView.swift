@@ -13,13 +13,32 @@ struct LyricsView: View {
     var artist: String
     var title: String
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         
         NavigationView{
             ScrollView(.vertical, showsIndicators: false){
                 VStack(alignment: .center, spacing: 20) {
                     // HEADER
-                    ShazamHeaderView()
+                    ZStack(alignment: .topTrailing) {
+                        ShazamHeaderView()
+                        
+                        Button(action: {
+                            withAnimation {
+                                dismiss()
+                            }
+                        }) {
+                            Image(systemName: "xmark")
+                                .font(.title2)
+                                .foregroundColor(.primary)
+                                .padding(14)
+                                .background(Color.white.opacity(0.7))
+                                .clipShape(Circle())
+                                .shadow(radius: 4)
+                        }
+                        .padding([.top, .trailing], 20)
+                    }
                     
                     VStack(alignment: .leading, spacing: 16) {
                         // TITLE - Artista
@@ -37,29 +56,42 @@ struct LyricsView: View {
                         Divider()
                         
                         // LYRIC - Letra de la canción
-                        if let lyricsText = lyrics.lyricModel.lyrics, !lyricsText.isEmpty {
-                            Text(lyricsText)
-                                .font(.body)
-                                .multilineTextAlignment(.leading)
-                                .lineSpacing(8)
-                                .padding(.top, 10)
-                        } else {
-                            VStack (alignment: .center) {
-                                ProgressView()
-                                Text("No se encontró la letra para **\(title)**.")
-                                    .font(.body)
-                                    .foregroundColor(.red)
+                        VStack (alignment: .center, spacing: 16) {
+                            if lyrics.isLoading {
+                                ProgressView("Loading lyrics...")
+                                    .font(.headline)
+                                    .padding()
+                            } else {
+                                if let lyricsText = lyrics.lyricModel.lyrics, !lyricsText.isEmpty {
+                                    Text(lyricsText)
+                                        .font(.headline)
+                                        .foregroundColor(.secondary)
+                                        .padding()
+                                } else {
+                                    Text("No lyrics found")
+                                        .font(.headline)
+                                        .foregroundColor(.secondary)
+                                        .padding()
+                                }
                             }
                         }
+                        .frame(maxWidth: .infinity)
+                        
                     }
                     .padding(.horizontal, 16)
-                    .frame(maxWidth: 600)
+                    
+                    // Save lyric
+                    if let lyricsText = lyrics.lyricModel.lyrics, !lyricsText.isEmpty {
+                        SaveLyricsButton()
+                    }
                 }
                 .navigationBarTitle(title, displayMode: .inline)
                 .navigationBarHidden(true)
                 .task {
                     await lyrics.fetchLyrics(artist: artist, title: title)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(UIColor.systemBackground))
             }//: Scroll
             .edgesIgnoringSafeArea(.top)
         }
@@ -70,5 +102,6 @@ struct LyricsView: View {
 
 #Preview {
     LyricsView(artist: "Chayanne", title: "Yo Te Amo")
+    
 }
 
