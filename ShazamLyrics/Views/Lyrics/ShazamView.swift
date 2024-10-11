@@ -12,22 +12,13 @@ struct ShazamView: View {
     
     @StateObject private var shazam = ShazamViewModel()
     @State private var isShowingSettings: Bool = false
+    @State private var isShowingLyricsSheet: Bool = false
     
     var body: some View {
         ZStack {
             NavigationView {
                 VStack(alignment: .center){
-                    
-                    Button {
-                        shazam.listnenMusic()
-                    } label: {
-                        Image(systemName: shazam.isRecording ? "stop" : "mic")
-                            .font(.system(size: 35).bold())
-                            .symbolVariant(.fill)
-                            .padding(30)
-                            .background(Color.cyan, in: Circle())
-                            .foregroundStyle(.white)
-                    }
+                    RecordingButton(shazam: shazam)
                 }
                 .navigationTitle("Lyrics")
             }
@@ -53,6 +44,7 @@ struct ShazamView: View {
                     
                     // Track info...
                     VStack (spacing: 15) {
+                        Spacer()
                         AsyncImage (url: track.artwork) { phase in
                             
                             if let image = phase.image {
@@ -68,7 +60,6 @@ struct ShazamView: View {
                         }
                         .frame(width: getRect().width - 100, height: 300)
                         
-                        
                         Text(track.title)
                             .font(.title2.bold())
                         
@@ -77,13 +68,14 @@ struct ShazamView: View {
                         
                         VStack (alignment: .leading, spacing: 6) {
                             Text("Genres")
+                                .font(.body.bold())
                                 .padding(.leading)
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack (spacing: 10) {
                                     ForEach(track.genres, id: \.self) { genre in
                                         Button {
-                                            
+                                            //
                                         } label: {
                                             Text(genre)
                                                 .font(.caption)
@@ -96,17 +88,33 @@ struct ShazamView: View {
                                 .padding(.horizontal)
                             }
                         }
-                        
-                        /// Apple Music Link...
+                        Spacer()
+                        // Apple Music Link...
                         Link(destination: track.appleMusicURL) {
                             Text("Play in Apple Music")
+                                .font(.title3)
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.bordered)
                         .controlSize(.large)
-                        .tint(.blue)
+                        .foregroundColor(.white)
+                        .background(Color.appleMusicRed)
+                        .cornerRadius(10)
                         .padding(.horizontal)
+                        
+                        /// Ver letra
+                        CustomButton(
+                            title: "See lyrics detail",
+                            backgroundColor: Color.customGreen
+                        ) {
+                            isShowingLyricsSheet.toggle()
+                        }
+                        .sheet(isPresented: $isShowingLyricsSheet) {
+                            LyricsView(artist: shazam.matchedTrack.artist, title: shazam.matchedTrack.title)
+                        }
+                        Spacer()
                     }
+                    
                     // Close Button
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .overlay(
