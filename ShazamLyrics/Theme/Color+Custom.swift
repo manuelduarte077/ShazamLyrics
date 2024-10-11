@@ -10,7 +10,6 @@ import SwiftUI
 // Extensión para manejar colores personalizados
 extension Color {
     
-    // Inicializador para crear colores desde un valor hexadecimal
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0

@@ -57,7 +57,7 @@ struct LyricsView: View {
                         
                         // LYRIC - Letra de la canción
                         VStack (alignment: .center, spacing: 16) {
-                            if lyrics.isLoading {
+                            if lyrics.isLoading{
                                 ProgressView("Loading lyrics...")
                                     .font(.headline)
                                     .padding()
