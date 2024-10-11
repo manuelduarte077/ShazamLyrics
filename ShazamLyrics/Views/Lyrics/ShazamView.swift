@@ -21,8 +21,21 @@ struct ShazamView: View {
                     RecordingButton(shazam: shazam)
                 }
                 .navigationTitle("Lyrics")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            isShowingSettings = true
+                        }) {
+                            Image(systemName: "gearshape")
+                                .font(.title2)
+                                .foregroundColor(.primary)
+                        }
+                    }
+                }
+                .sheet(isPresented: $isShowingSettings) {
+                    SettingsView()
+                }
             }
-            
             
             if let track = shazam.matchedTrack {
                 
