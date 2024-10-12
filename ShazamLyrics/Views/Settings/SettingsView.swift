@@ -105,6 +105,7 @@ struct SettingsView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "xmark")
+                        .foregroundColor(.primary)
                 })
             .navigationBarTitle("Settings", displayMode: .inline)
             .background(Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all))
