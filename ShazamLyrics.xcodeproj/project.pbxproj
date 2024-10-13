@@ -7,11 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C432DE8F2CB85FC100526918 /* SaveLyricsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432DE8E2CB85FC100526918 /* SaveLyricsButton.swift */; };
+		C432DE922CB8722200526918 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432DE912CB8721E00526918 /* Color+Custom.swift */; };
+		C432DE942CB8776100526918 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432DE932CB8776100526918 /* CustomButton.swift */; };
+		C457F0A52C916F51004174C1 /* ShazamHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F0A42C916F51004174C1 /* ShazamHeaderView.swift */; };
+		C47A769C2CB31B890016A3F6 /* LyricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A769B2CB31B870016A3F6 /* LyricService.swift */; };
+		C47A76A82CB4F6540016A3F6 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A76A72CB4F6540016A3F6 /* CardView.swift */; };
+		C47A76AB2CB59BCA0016A3F6 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A76AA2CB59BC50016A3F6 /* Track.swift */; };
+		C47A76AD2CB647710016A3F6 /* RecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A76AC2CB647680016A3F6 /* RecordingButton.swift */; };
+		C4ACF3882C91597B00FBC7F5 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */; };
+		C4ACF38A2C915E4A00FBC7F5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */; };
+		C4B6869D2CA28A7000B9E2C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4B6869C2CA28A7000B9E2C0 /* Assets.xcassets */; };
+		C4D999352CB8C36A008471B5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D999342CB8C368008471B5 /* Theme.swift */; };
+		C4D999372CB8C44C008471B5 /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D999362CB8C44C008471B5 /* ThemeSelectionView.swift */; };
+		C4D999392CB8C99D008471B5 /* LanguageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D999382CB8C99D008471B5 /* LanguageSelectionView.swift */; };
+		C4D9993B2CB8CAA2008471B5 /* FormRowStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9993A2CB8CAA2008471B5 /* FormRowStaticView.swift */; };
+		C4D9993D2CB8CABA008471B5 /* FormRowLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9993C2CB8CABA008471B5 /* FormRowLinkView.swift */; };
 		CFCCCDAE270F69D8005B78ED /* ShazamLyricsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCCCDAD270F69D8005B78ED /* ShazamLyricsApp.swift */; };
 		CFCCCDB0270F69D8005B78ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCCCDAF270F69D8005B78ED /* ContentView.swift */; };
-		CFCCCDB2270F69D9005B78ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCCCDB1270F69D9005B78ED /* Assets.xcassets */; };
 		CFCCCDB5270F69D9005B78ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCCCDB4270F69D9005B78ED /* Preview Assets.xcassets */; };
-		CFCCCDBF270F6EB7005B78ED /* ShazamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCCCDBE270F6EB7005B78ED /* ShazamModel.swift */; };
 		CFCCCDC1270F6EC7005B78ED /* ShazamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCCCDC0270F6EC7005B78ED /* ShazamView.swift */; };
 		CFCCCDC3270F6EDD005B78ED /* ShazamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCCCDC2270F6EDD005B78ED /* ShazamViewModel.swift */; };
 		CFCCCDC5270F7EA8005B78ED /* LyricsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCCCDC4270F7EA8005B78ED /* LyricsModel.swift */; };
@@ -20,12 +34,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C432DE8E2CB85FC100526918 /* SaveLyricsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLyricsButton.swift; sourceTree = "<group>"; };
+		C432DE912CB8721E00526918 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
+		C432DE932CB8776100526918 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		C457F0A42C916F51004174C1 /* ShazamHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamHeaderView.swift; sourceTree = "<group>"; };
+		C47A769B2CB31B870016A3F6 /* LyricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricService.swift; sourceTree = "<group>"; };
+		C47A76A72CB4F6540016A3F6 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		C47A76AA2CB59BC50016A3F6 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		C47A76AC2CB647680016A3F6 /* RecordingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingButton.swift; sourceTree = "<group>"; };
+		C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C4B6869C2CA28A7000B9E2C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4D999342CB8C368008471B5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C4D999362CB8C44C008471B5 /* ThemeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
+		C4D999382CB8C99D008471B5 /* LanguageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionView.swift; sourceTree = "<group>"; };
+		C4D9993A2CB8CAA2008471B5 /* FormRowStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRowStaticView.swift; sourceTree = "<group>"; };
+		C4D9993C2CB8CABA008471B5 /* FormRowLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRowLinkView.swift; sourceTree = "<group>"; };
 		CFCCCDAA270F69D8005B78ED /* ShazamLyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShazamLyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFCCCDAD270F69D8005B78ED /* ShazamLyricsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamLyricsApp.swift; sourceTree = "<group>"; };
 		CFCCCDAF270F69D8005B78ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		CFCCCDB1270F69D9005B78ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFCCCDB4270F69D9005B78ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CFCCCDBE270F6EB7005B78ED /* ShazamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamModel.swift; sourceTree = "<group>"; };
 		CFCCCDC0270F6EC7005B78ED /* ShazamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamView.swift; sourceTree = "<group>"; };
 		CFCCCDC2270F6EDD005B78ED /* ShazamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamViewModel.swift; sourceTree = "<group>"; };
 		CFCCCDC4270F7EA8005B78ED /* LyricsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsModel.swift; sourceTree = "<group>"; };
@@ -44,6 +72,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C47A76952CB31B230016A3F6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C47A769B2CB31B870016A3F6 /* LyricService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C47A76962CB31B380016A3F6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C4ACF3892C915E4A00FBC7F5 /* SettingsView.swift */,
+				C4D9993A2CB8CAA2008471B5 /* FormRowStaticView.swift */,
+				C4D9993C2CB8CABA008471B5 /* FormRowLinkView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C47A76972CB31B4F0016A3F6 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				C4ACF3872C91597B00FBC7F5 /* FavoritesView.swift */,
+				C47A76A72CB4F6540016A3F6 /* CardView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		C47A76982CB31B5F0016A3F6 /* Lyrics */ = {
+			isa = PBXGroup;
+			children = (
+				C47A76AC2CB647680016A3F6 /* RecordingButton.swift */,
+				CFCCCDC0270F6EC7005B78ED /* ShazamView.swift */,
+				CFCCCDC8270F813A005B78ED /* LyricsView.swift */,
+				C432DE8E2CB85FC100526918 /* SaveLyricsButton.swift */,
+			);
+			path = Lyrics;
+			sourceTree = "<group>";
+		};
+		C47A76A92CB5996A0016A3F6 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C457F0A42C916F51004174C1 /* ShazamHeaderView.swift */,
+				C432DE932CB8776100526918 /* CustomButton.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		C4D999332CB8C310008471B5 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				C4D999342CB8C368008471B5 /* Theme.swift */,
+				C432DE912CB8721E00526918 /* Color+Custom.swift */,
+				C4D999362CB8C44C008471B5 /* ThemeSelectionView.swift */,
+				C4D999382CB8C99D008471B5 /* LanguageSelectionView.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		CFCCCDA1270F69D8005B78ED = {
 			isa = PBXGroup;
 			children = (
@@ -63,12 +149,14 @@
 		CFCCCDAC270F69D8005B78ED /* ShazamLyrics */ = {
 			isa = PBXGroup;
 			children = (
-				CFCCCDAD270F69D8005B78ED /* ShazamLyricsApp.swift */,
-				CFCCCDAF270F69D8005B78ED /* ContentView.swift */,
+				C4D999332CB8C310008471B5 /* Theme */,
+				C47A76A92CB5996A0016A3F6 /* helpers */,
+				C47A76952CB31B230016A3F6 /* Services */,
 				CFCCCDBB270F6E85005B78ED /* Models */,
 				CFCCCDBD270F6E9E005B78ED /* Views */,
 				CFCCCDBC270F6E92005B78ED /* ViewModels */,
-				CFCCCDB1270F69D9005B78ED /* Assets.xcassets */,
+				CFCCCDAD270F69D8005B78ED /* ShazamLyricsApp.swift */,
+				C4B6869C2CA28A7000B9E2C0 /* Assets.xcassets */,
 				CFCCCDB3270F69D9005B78ED /* Preview Content */,
 			);
 			path = ShazamLyrics;
@@ -85,7 +173,7 @@
 		CFCCCDBB270F6E85005B78ED /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CFCCCDBE270F6EB7005B78ED /* ShazamModel.swift */,
+				C47A76AA2CB59BC50016A3F6 /* Track.swift */,
 				CFCCCDC4270F7EA8005B78ED /* LyricsModel.swift */,
 			);
 			path = Models;
@@ -103,8 +191,10 @@
 		CFCCCDBD270F6E9E005B78ED /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CFCCCDC0270F6EC7005B78ED /* ShazamView.swift */,
-				CFCCCDC8270F813A005B78ED /* LyricsView.swift */,
+				C47A76982CB31B5F0016A3F6 /* Lyrics */,
+				C47A76972CB31B4F0016A3F6 /* Favorites */,
+				C47A76962CB31B380016A3F6 /* Settings */,
+				CFCCCDAF270F69D8005B78ED /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,8 +257,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4B6869D2CA28A7000B9E2C0 /* Assets.xcassets in Resources */,
 				CFCCCDB5270F69D9005B78ED /* Preview Assets.xcassets in Resources */,
-				CFCCCDB2270F69D9005B78ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,11 +272,25 @@
 				CFCCCDB0270F69D8005B78ED /* ContentView.swift in Sources */,
 				CFCCCDC7270F7EF9005B78ED /* LyricsViewModel.swift in Sources */,
 				CFCCCDC5270F7EA8005B78ED /* LyricsModel.swift in Sources */,
-				CFCCCDBF270F6EB7005B78ED /* ShazamModel.swift in Sources */,
+				C4D999392CB8C99D008471B5 /* LanguageSelectionView.swift in Sources */,
+				C47A76AD2CB647710016A3F6 /* RecordingButton.swift in Sources */,
+				C432DE942CB8776100526918 /* CustomButton.swift in Sources */,
+				C47A76AB2CB59BCA0016A3F6 /* Track.swift in Sources */,
+				C4D9993D2CB8CABA008471B5 /* FormRowLinkView.swift in Sources */,
+				C4D9993B2CB8CAA2008471B5 /* FormRowStaticView.swift in Sources */,
+				C47A769C2CB31B890016A3F6 /* LyricService.swift in Sources */,
+				C432DE922CB8722200526918 /* Color+Custom.swift in Sources */,
 				CFCCCDC9270F813A005B78ED /* LyricsView.swift in Sources */,
+				C4D999352CB8C36A008471B5 /* Theme.swift in Sources */,
+				C457F0A52C916F51004174C1 /* ShazamHeaderView.swift in Sources */,
+				C4ACF38A2C915E4A00FBC7F5 /* SettingsView.swift in Sources */,
 				CFCCCDC1270F6EC7005B78ED /* ShazamView.swift in Sources */,
 				CFCCCDAE270F69D8005B78ED /* ShazamLyricsApp.swift in Sources */,
 				CFCCCDC3270F6EDD005B78ED /* ShazamViewModel.swift in Sources */,
+				C4D999372CB8C44C008471B5 /* ThemeSelectionView.swift in Sources */,
+				C432DE8F2CB85FC100526918 /* SaveLyricsButton.swift in Sources */,
+				C47A76A82CB4F6540016A3F6 /* CardView.swift in Sources */,
+				C4ACF3882C91597B00FBC7F5 /* FavoritesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,12 +423,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"ShazamLyrics/Preview Content\"";
 				DEVELOPMENT_TEAM = 2XUFV8QBCV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = ShazamLyrics;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shazam Lyrics";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Usar microfono";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -354,12 +458,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"ShazamLyrics/Preview Content\"";
 				DEVELOPMENT_TEAM = 2XUFV8QBCV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = ShazamLyrics;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shazam Lyrics";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Usar microfono";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

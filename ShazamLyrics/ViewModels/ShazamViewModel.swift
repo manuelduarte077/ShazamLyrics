@@ -2,80 +2,123 @@ import ShazamKit
 import AVKit
 import SwiftUI
 
-class ShazamViewModel: NSObject, ObservableObject {
+class ShazamViewModel: NSObject, ObservableObject, SHSessionDelegate {
     
-    @Published var shazamModel = ShazamModel(title: "Pulsa", artist: "Escuchar", album: URL(string: "https://google.com"))
-    @Published var recording = false
+    @Published var session = SHSession()
     
-    private var audioEngine = AVAudioEngine()
-    private var session = SHSession()
-    private var signatureGenerator = SHSignatureGenerator()
+    // Audio Engine...
+    @Published var audioEngine = AVAudioEngine()
     
-    override init(){
+    // Error...
+    @Published var errorMsg = ""
+    @Published var showError = false
+    
+    // Recording Status...
+    @Published var isRecording = false
+    
+    // Form Track...
+    @Published var matchedTrack: Track!
+    
+    override init() {
         super.init()
         session.delegate = self
     }
     
-    func startListening(){
-        guard !audioEngine.isRunning else {
-            audioEngine.stop()
+    func session(_ session: SHSession, didFind match: SHMatch) {
+        
+        // Match Found...
+        if let firstItem = match.mediaItems.first {
+            
+            print(firstItem.title ?? "")
+            
             DispatchQueue.main.async {
-                self.recording = true
+                self.matchedTrack = Track(
+                    title: firstItem.title ?? "",
+                    artist: firstItem.artist ?? "",
+                    artwork: firstItem.artworkURL ?? URL(string: "")!,
+                    genres: firstItem.genres,
+                    appleMusicURL: firstItem.appleMusicURL ?? URL(string: "")!
+                )
+                
+                self.stopRecording()
             }
+        }
+    }
+    
+    func session(_ session: SHSession, didNotFindMatchFor signature: SHSignature, error: Error?) {
+        
+        // No match...
+        DispatchQueue.main.async {
+            self.errorMsg = error?.localizedDescription ?? "No music found"
+            self.showError.toggle()
+            // stoppin Audio recording
+            self.stopRecording()
+        }
+    }
+    
+    func stopRecording() {
+        audioEngine.stop()
+        withAnimation {
+            isRecording = false
+        }
+    }
+    
+    // Fetch Music
+    func listnenMusic() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        // checking for permission...
+        audioSession.requestRecordPermission { status in
+            if status {
+                self.recordAudio()
+            }
+            else {
+                self.errorMsg = "Please allow microphone access !!!"
+                self.showError.toggle()
+            }
+        }
+    }
+    
+    func recordAudio() {
+        // Checking if already recording...
+        // then stopping it...
+        if audioEngine.isRunning {
+            self.stopRecording()
             return
         }
         
-        let audioSession = AVAudioSession.sharedInstance()
-        audioSession.requestRecordPermission { granted in
-            guard granted else { return }
+        // Recording...
+        // First create a node...
+        // Then Listnen to it...
+        
+        let inputMode = audioEngine.inputNode
+        let format = inputMode.outputFormat(forBus: .zero)
+        
+        // removing tap if already installed
+        inputMode.removeTap(onBus: .zero)
+        
+        inputMode.installTap(onBus: .zero, bufferSize: 1024, format: format) { buffer, time in
             
-            try? audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-            let inputNode = self.audioEngine.inputNode
-            let recordingFormat = inputNode.outputFormat(forBus: 0)
-            
-            inputNode.removeTap(onBus: .zero)
-            
-            inputNode.installTap(onBus: .zero, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
-                self.session.matchStreamingBuffer(buffer, at: nil)
-            }
-            
-            self.audioEngine.prepare()
-            do{
-                try self.audioEngine.start()
-            }catch let error as NSError{
-                print("Error al escanear", error.localizedDescription)
-            }
-            
-            DispatchQueue.main.async {
-                self.recording = true
-            }
-            
-        }  
-    }
-    
-    func stop(){
-        if audioEngine.isRunning {
-            audioEngine.stop()
-            DispatchQueue.main.async {
-                self.recording = false
+            // Start Shazam Session...
+            self.session.matchStreamingBuffer(buffer, at: time)
+        }
+        
+        // Start audio service...
+        audioEngine.prepare()
+        
+        do {
+            try audioEngine.start()
+            print("Started audio...")
+            withAnimation {
+                self.isRecording = true
             }
         }
+        catch {
+            self.errorMsg = error.localizedDescription
+            self.showError.toggle()
+        }
+        
     }
-    
 }
 
-extension ShazamViewModel: SHSessionDelegate {
-    
-    func session(_ session: SHSession, didFind match: SHMatch) {
-        let mediaItems = match.mediaItems
-        if let item = mediaItems.first {
-            DispatchQueue.main.async {
-                self.shazamModel = ShazamModel(title: item.title, artist: item.artist, album: item.artworkURL)
-                if ((self.shazamModel.album?.isFileURL) != nil) {
-                    self.stop()
-                }
-            }
-        }
-    }
-    
-}
