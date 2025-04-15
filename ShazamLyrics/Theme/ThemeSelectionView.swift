@@ -27,7 +27,7 @@ struct ThemeSelectionView: View {
                         Spacer()
                         if selectedTheme == theme {
                             Image(systemName: "checkmark")
-                                .foregroundColor(.blue)
+                                .foregroundColor(.accentColor)
                         }
                     }
                     .padding()
@@ -41,4 +41,9 @@ struct ThemeSelectionView: View {
         }
         .padding(.top, 20)
     }
+}
+
+
+#Preview {
+    ThemeSelectionView(selectedTheme: .constant(.light))
 }

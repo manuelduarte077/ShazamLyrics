@@ -9,35 +9,52 @@ import SwiftUI
 
 struct LanguageSelectionView: View {
     @AppStorage("selectedLanguage") private var selectedLanguage = "en"
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        VStack {
-            Text("Select Language")
-                .font(.headline)
-                .padding()
-
-            // Botón para cambiar a Inglés
-            Button(action: {
-                changeLanguage(to: "en")
-            }) {
-                Text("English")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+        NavigationView {
+            List {
+                Section(header: Text("Select Language").font(.headline)) {
+                    LanguageButton(languageCode: "en", languageName: "English", selectedLanguage: $selectedLanguage, presentationMode: _presentationMode)
+                    LanguageButton(languageCode: "es", languageName: "Español", selectedLanguage: $selectedLanguage, presentationMode: _presentationMode)
+                }
             }
-
-            // Botón para cambiar a Español
-            Button(action: {
-                changeLanguage(to: "es")
-            }) {
-                Text("Español")
-                    .padding()
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+            .listStyle(InsetGroupedListStyle())
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
             }
         }
+    }
+}
+
+struct LanguageButton: View {
+    let languageCode: String
+    let languageName: String
+    @Binding var selectedLanguage: String
+    @Environment(\.presentationMode) var presentationMode
+
+    var body: some View {
+        Button(action: {
+            changeLanguage(to: languageCode)
+            selectedLanguage = languageCode
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            HStack {
+                Text(languageName)
+                    .foregroundColor(.primary)
+                Spacer()
+                if selectedLanguage == languageCode {
+                    Image(systemName: "checkmark")
+                        .foregroundColor(.blue)
+                }
+            }
+            .padding(.vertical, 5)
+        }
+        .listRowBackground(Color(UIColor.secondarySystemBackground))
     }
 
     func changeLanguage(to language: String) {

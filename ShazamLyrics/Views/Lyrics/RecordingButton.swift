@@ -27,7 +27,6 @@ struct RecordingButton: View {
                     }
             }
 
-            // Botón de grabación con animación de escala
             Button {
                 shazam.listnenMusic()
             } label: {
@@ -35,8 +34,8 @@ struct RecordingButton: View {
                     .font(.system(size: 55).bold())
                     .foregroundColor(.white)
                     .padding(30)
-                    .background(Color.cyan, in: Circle())
-                    .scaleEffect(animateRecording ? 1.1 : 1.0) // Efecto de pulsación en el botón
+                    .background(Color.accent, in: Circle())
+                    .scaleEffect(animateRecording ? 1.1 : 1.0)
                     .shadow(color: .cyan.opacity(0.7), radius: shazam.isRecording ? 10 : 0)
             }
             .onAppear {
@@ -49,13 +48,12 @@ struct RecordingButton: View {
                     startPulsingAnimation()
                 } else {
                     animateRecording = false
-                    animateGlow = false // Detenemos la animación del resplandor
+                    animateGlow = false
                 }
             }
         }
     }
     
-    // Función que maneja la animación de pulsación
     func startPulsingAnimation() {
         withAnimation(Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true)) {
             animateRecording = true
